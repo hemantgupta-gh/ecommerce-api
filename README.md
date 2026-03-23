@@ -122,7 +122,7 @@ items: [
 total: Number
 createdAt: Date
 
-## Record in DB
+## Records in DB
 Run the command 'node check-data.js' to check.
 
 ## End-to-End Flow
