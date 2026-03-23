@@ -19,13 +19,14 @@ afterAll(async () => {
 describe('E-commerce API Flow', () => {
 
   // Register User
-  test('Register Admin', async () => {
+  test('Register User', async () => {
     const res = await request(app).post('/api/auth/register').send({
-      name: "Hemant",
-      email: "hemant@test.com",
+      name: "Dummy",
+      email: "dummy@test.com",
       password: "123456",
-      role: "user"
+      role: "admin"
     });
+    userId = res.body._id;
     expect(res.statusCode).toBe(200);
   });
 
@@ -34,10 +35,9 @@ describe('E-commerce API Flow', () => {
     const res = await request(app)
       .put(`/api/auth/${userId}`)
       .send({
-        name: "Updated Admin",
+        name: "Updated User",
         password: "newpass123"
       });
-
     expect(res.statusCode).toBe(200);
   });
 
@@ -45,14 +45,13 @@ describe('E-commerce API Flow', () => {
   test('Delete User', async () => {
     const res = await request(app)
       .delete(`/api/auth/${userId}`);
-
     expect(res.statusCode).toBe(200);
   });
 
   // Login
   test('Login', async () => {
     const res = await request(app).post('/api/auth/login').send({
-      email: "hemant@test.com",
+      email: "dummy@test.com",
       password: "123456"
     });
     token = res.body.token;

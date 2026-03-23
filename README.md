@@ -122,6 +122,9 @@ items: [
 total: Number
 createdAt: Date
 
+## Record Verification in DB
+Run the command 'node check-data.js' to see.
+
 ## End-to-End Flow
 1. User Registration
 2. Login, get token
